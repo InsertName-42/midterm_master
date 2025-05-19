@@ -20,15 +20,21 @@ namespace Palindrome
                 {
                     return false;
                 }
-                return true;
             
             }
+            return true;
         }
         static void Main(string[] args)
         {
             Console.WriteLine("Please enter a word or phrase to be checked as a Palindrome.");
             string input = Console.ReadLine();
-            if (IsPalindrome(input))
+            string cleanedInput = "";
+            foreach (char c in input) {
+                if (char.IsLetterOrDigit(c)) {
+                    cleanedInput += char.ToLower(c);
+                }
+            }
+            if (IsPalindrome(cleanedInput))
             {
                 Console.WriteLine($"{input} is a palindrome.");
             }
