@@ -40,13 +40,21 @@ namespace ProfessorTests
             professor2.Department = "Astrophysics";
             Console.WriteLine($"After updates: {professor2}");
 
-            professor2.FirstName = "";
-            Console.WriteLine($"After setting empty first name: {professor2}");
+            //Validation
+            Console.WriteLine($"After setting empty first name:");
+            try
+            {
+                professor2.FirstName = "";
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine($"Caught expected setter error: {ex.Message}");
+            }
 
             //Lnumber (read-only)
             Console.WriteLine("\n--- Testing Lnumber (Read-only) ---");
             Professor professor3 = new Professor("L00112", "Elizabeth", "Madison", "Chemistry");
-            Console.WriteLine($"Professor 3 Lnumber: {professor3.Lnumber}");
+            Console.WriteLine($"Professor 3 Lnumber: {professor3.Lnumber}");        
 
             //ToString() method
             Console.WriteLine("\n--- Testing ToString() ---");
