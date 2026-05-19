@@ -40,14 +40,19 @@ namespace Palindrome
                     cleanedInput += char.ToLower(c);
                 }
             }
+            if (cleanedInput.Length == 0)
+            {
+                Console.WriteLine($"'{input}' contains no letters or digits to evaluate.");
+                return;
+            }
             //Shows result
             if (IsPalindrome(cleanedInput))
             {
-                Console.WriteLine($"{cleanedInput} is a palindrome.");
+                Console.WriteLine($"{input} is a palindrome.");
             }
             else
             {
-                Console.WriteLine($"{cleanedInput} is not a palindrome.");
+                Console.WriteLine($"{input} is not a palindrome.");
             }
         }
     }
